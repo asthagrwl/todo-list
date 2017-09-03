@@ -1,0 +1,15 @@
+
+div.ACTIVE{
+    color: blue;
+
+}
+
+div.COMPLETE{
+   color:GREEN;
+    text-decoration: line-through;
+}
+
+div.DELETED{
+    color:RED;
+    text-decoration: line-through;
+}

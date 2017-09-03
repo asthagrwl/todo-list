@@ -33,23 +33,34 @@ app.delete("/api/todos/:id",function(req,res){
     }else{
         // mark it as delete...
         todo.status= todos_db.statusENUMS.DELETED;
-        res.send(todos_db);
+        res.json(todos_db.todos);
 
     }
 });
 // modify a todo PUT
 app.put("/api/todos/:id",function(req,res){
 
-    var todo_title= req.body.todo_title;
     var todo = todos_db.todos[req.params.id];
-    if(!todo_title || todo_title=="" || todo_title.trim()==""){
-        todo.title= todo_title;
+    //console.log("todo fetch" + todo.title);
+    if(!todo){
+        res.status(400).json({error : "TODO doesn't Exist"});
     }
-    var todo_status= req.body.todo_status;
-    if(todo_status && (todo_status==todos_db.statusENUMS.ACTIVE || todo_status==todos_db.statusENUMS.COMPLETE)){
-        todo.status= todo_status;
-    }
-    res.json(todos_db.todos);
+    else{
+        var todo_title = req.body.todo_title;
+        if(todo_title && todo_title!="" && todo_title.trim()!=""){
+            todo.title = todo_title;
+        }
+        var todo_status = req.body.todo_status;
+        console.log("todo status : "+todo_status);
+        if(todo_status && (todo_status == todos_db.statusENUMS.ACTIVE ||
+            todo_status == todos_db.statusENUMS.COMPLETE)){
+            todo.status = todo_status;
+        }
+
+        todos_db.todos[req.params.id] = todo;
+        res.json(todos_db.todos);console.log(todo.title);
+        }
+
 });
 app.put("/api/todos/complete/:id",function(req,res){
 
@@ -136,4 +147,4 @@ app.get("/api/todos/deleted",function(req,res){
 
 });
 
-app.listen(4000);
+app.listen(3000);

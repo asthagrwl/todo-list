@@ -3,13 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>TODO-APP</title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
-<body>
-    <h1>My Todo List</h1>
-    <button value="Get Todos" onclick="getTodos()" >Get Todos</button>
-    <div id="todos">
+<br>
+    <div style="position:absolute;left: 300px;top:20px ; background-color: azure;height: auto;width: 600px;">
+        <div style="position:relative;height:80px;background-color: lightyellow;padding: 10px;">
+            <h1 style="position: relative;left:180px; font-family: Cambria">My Todos</h1>
+        </div>
+        <div style="position:relative;height:auto;">
+            <label style="position: relative;left:10px;top:10px;font-family: Cambria;color: black;font-size: large;">Active Todos</label>
+            <div id="active_todos" style="height:auto;position:relative;top:15px;padding: 15px;">
+
+            </div>
+        </div>
+        <div style="position:relative;height:1px;background-color: black;"></div>
+        <div style="position: relative;height: auto;">
+            <label style="position:relative;margin-left: 30px;top:10px;color: gray;font-family: Cambria;">Add Todo</label>
+            <br></br>
+            <input type="text" id="input_todo" placeholder="Enter New Todo" style="position: relative;left:30px;top 10px;">
+            <input type="button" value="Add Todo" onClick="addTodo()" style="position: relative;width:90px;height:40px;left:10px;background-color:deepskyblue;text-shadow: -1px 1px #417cb8;font-family: Cambria;font-size: large;border-radius: 10px; ">
+        </div>
+        <div style="position:relative;height:1px;background-color: black;"></div>
+        <div style="position:relative;height:auto;">
+            <label style="position: relative;left:10px;top:10px;font-family: Cambria;color: black;font-size: large;">Completed Todos</label>
+            <div id="completed_todos" style="height:auto;position:relative;top:10px;padding: 15px;">
+
+            </div>
+        </div>
+        <div style="position:relative;height:1px;background-color: black;"></div>
+        <div style="height:auto;">
+            <label style="position: relative;left:10px;top:10px;font-family: Cambria;color: black;font-size: large;">Deleted Todos</label>
+            <div id="deleted_todos" style="height:auto;position:relative;top:15px;padding: 15px;">
+
+            </div>
+        </div>
+        <div style="position:relative;height:1px;background-color: black;"></div>
+
+        <!--<button value="Get Todos" onclick="getTodos()" >Refresh Todos</button><br>-->
 
     </div>
+
 </body>
 <script src="/script.js" type="text/javascript"></script>
+<script src="/test.js" type="text/javascript"></script>
 </html>
